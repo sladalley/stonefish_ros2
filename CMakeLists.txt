@@ -70,8 +70,24 @@ ament_target_dependencies(stonefish_ros2_interface
  image_transport
  tf2
  tf2_ros
+ tf2_msgs
 )
 ament_export_libraries(stonefish_ros2_interface)
+ament_export_dependencies(
+    rclcpp
+    ament_index_cpp
+    std_srvs
+    geometry_msgs
+    nav_msgs
+    visualization_msgs
+    sensor_msgs
+    PCL
+    pcl_conversions
+    image_transport
+    tf2
+    tf2_ros
+    tf2_msgs
+)
 ament_export_include_directories(include)
 
 # define exacutables
@@ -90,7 +106,7 @@ install(
   INCLUDES DESTINATION include
 )
 install(
-  DIRECTORY include
+  DIRECTORY include/
   DESTINATION include
 )
 
