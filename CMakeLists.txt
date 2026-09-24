@@ -72,7 +72,7 @@ ament_target_dependencies(stonefish_ros2_interface
  tf2_ros
  tf2_msgs
 )
-ament_export_libraries(stonefish_ros2_interface)
+
 ament_export_dependencies(
     rclcpp
     ament_index_cpp
@@ -102,9 +102,14 @@ ament_target_dependencies(stonefish_simulator_nogpu rclcpp)
 # installation
 install(
   TARGETS stonefish_ros2_interface
+  EXPORT stonefish_ros2Targets
   LIBRARY DESTINATION lib
+  ARCHIVE DESTINATION lib
+  RUNTIME DESTINATION bin
   INCLUDES DESTINATION include
 )
+
+ament_export_targets(stonefish_ros2Targets HAS_LIBRARY_TARGET)
 install(
   DIRECTORY include/
   DESTINATION include
